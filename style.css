@@ -1,0 +1,63 @@
+input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+label {
+    display: block;
+    width: 60px;
+    height: 30px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(227,0,255,1) 100%);
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgba(2,0,36,1);
+}
+
+label::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background-color: #000000;
+    position: absolute;
+    border-radius: 70px;
+    top: 3px;
+    right: 5px;
+    transition: 0.5s;
+}
+
+.sun_icon {
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    transition: opacity 3s ease-in-out;
+}
+
+.moon_icon {
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 32px;
+    transition: opacity 3s ease-in-out;
+}
+
+input:checked + label:after {
+    background-color: #ffffff;
+    right: calc(100% - 5px);
+    transform: translateX(100%);
+}
+
+input:checked + label {
+    background: rgb(251,219,1);
+    background: linear-gradient(90deg, rgba(251,219,1,1) 25%, rgb(53, 178, 240) 60%, rgb(39, 137, 185) 85%);
+    box-shadow: 0 0 20px rgba(0,126,191,1);
+}
+
+
+label:active:after {
+    width: 31px;
+}
