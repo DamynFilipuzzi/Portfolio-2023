@@ -155,7 +155,7 @@
         <div class="row" id="contact">
           <h1>Contact</h1>
           <form action="">
-            <label for="name"></label>
+
           </form>
         </div>
 
@@ -176,17 +176,6 @@
   </body>
 
   <script>
-    // Watch if system default color theme switches and correspond to change
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        const newColor = event.matches ? "dark" : "light";
-        document.body.dataset.bsTheme = newColor;
-        
-        if (newColor == "dark") {
-          document.getElementById("lightdarkswitch").checked = false;
-        }else {
-          document.getElementById("lightdarkswitch").checked = true;
-        }
-    });
 
     function checkSystemDefaultTheme() {
       // Use system preference (Windows OS only I believe, need to test on Mac OS) to set websites theme
