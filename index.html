@@ -16,7 +16,7 @@
 
   </head>
 
-  <body data-bs-theme="light" onload="checkSystemDefaultTheme()">
+  <body data-bs-theme="light" onload="checkTheme()">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container-fluid">
@@ -177,9 +177,11 @@
 
   <script>
 
-    function checkSystemDefaultTheme() {
-      // Use system preference (Windows OS only I believe, need to test on Mac OS) to set websites theme
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    function checkTheme() {
+      // Check LocalStorage for Users Theme Preference.
+      let theme = localStorage.getItem("theme");
+
+      if (theme == "dark") {
         document.body.dataset.bsTheme = "dark"
         document.getElementById("lightdarkswitch").checked = false;
       } else {
@@ -191,6 +193,7 @@
     function switchTheme() {
       var element = document.body;
       element.dataset.bsTheme = element.dataset.bsTheme == "dark" ? "light" : "dark";
+      localStorage.setItem('theme', element.dataset.bsTheme);
     }
 
   </script>
